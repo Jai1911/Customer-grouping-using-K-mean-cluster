@@ -2,20 +2,20 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
-# Load data (replace with your data path)
+# Load data
 data = pd.read_csv("Mall_Customers.csv")
 
 # Select relevant features
 features = ['CustomerID', 'InvoiceDate', 'Quantity', 'UnitPrice']
 
 # Data preprocessing
-# Handle missing values (replace with appropriate methods)
+# Handle missing values
 data.fillna(method='ffill', inplace=True)
 
 # Convert 'InvoiceDate' to datetime format
 data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'])
 
-# Extract features (e.g., month, day, year) from 'InvoiceDate'
+# Extract features from 'InvoiceDate'
 data['InvoiceMonth'] = data['InvoiceDate'].dt.month
 data['InvoiceDay'] = data['InvoiceDate'].dt.day
 data['InvoiceYear'] = data['InvoiceDate'].dt.year
